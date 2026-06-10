@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Práctica Inglés - Prueba Oral</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #0f1923; color: #e8edf2; min-height: 100vh; padding: 20px 20px 60px; }
+  .watermark { position: fixed; bottom: 12px; right: 16px; font-size: 0.72rem; color: #2a3f52; font-weight: 700; letter-spacing: 1px; z-index: 999; }
+  header { text-align: center; padding: 30px 20px 20px; }
+  header h1 { font-size: 1.6rem; font-weight: 700; color: #64d2ff; letter-spacing: -0.5px; }
+  header p { font-size: 0.85rem; color: #7a8fa0; margin-top: 6px; }
+  .tabs { display: flex; gap: 8px; justify-content: center; margin: 24px 0 20px; flex-wrap: wrap; }
+  .tab { background: #1c2b38; border: 1.5px solid #2a3f52; color: #7a8fa0; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+  .tab.active { background: #64d2ff; border-color: #64d2ff; color: #0f1923; font-weight: 700; }
+  .section { display: none; max-width: 600px; margin: 0 auto; }
+  .section.active { display: block; }
+  .section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #64d2ff; margin-bottom: 12px; padding-left: 4px; }
+  .card { background: #1c2b38; border: 1px solid #2a3f52; border-radius: 14px; padding: 16px; margin-bottom: 12px; }
+  .card .label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+  .label.pregunta { color: #ff9f43; }
+  .label.respuesta { color: #54c98c; }
+  .label.prediccion { color: #a29bfe; }
+  .label.pasado { color: #fd79a8; }
+  .label.perfecto { color: #74b9ff; }
+  .phrase-en { font-size: 1rem; font-weight: 600; color: #e8edf2; margin-bottom: 4px; line-height: 1.4; }
+  .phrase-pron { font-size: 0.82rem; color: #64d2ff; font-style: italic; margin-bottom: 10px; }
+  .speak-btn { display: inline-flex; align-items: center; gap: 6px; background: #0f1923; border: 1.5px solid #2a3f52; color: #e8edf2; padding: 7px 14px; border-radius: 20px; font-size: 0.78rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+  .speak-btn:hover { border-color: #64d2ff; color: #64d2ff; }
+  .speak-btn.playing { border-color: #54c98c; color: #54c98c; animation: pulse 1s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+  .play-all-btn { display: block; width: 100%; background: #64d2ff; color: #0f1923; border: none; padding: 14px; border-radius: 12px; font-size: 0.9rem; font-weight: 700; cursor: pointer; margin-bottom: 20px; font-family: inherit; transition: opacity 0.2s; }
+  .play-all-btn:hover { opacity: 0.85; }
+  .play-all-btn.playing { background: #54c98c; }
+  .tip { background: #1c2b38; border-left: 3px solid #64d2ff; border-radius: 8px; padding: 12px 14px; font-size: 0.8rem; color: #7a8fa0; margin-bottom: 16px; line-height: 1.5; }
+  .tip strong { color: #e8edf2; }
+  .divider { height: 1px; background: #2a3f52; margin: 16px 0; }
+</style>
+</head>
+<body>
+
+<div class="watermark">by Chiguin ✨</div>
+
+<header>
+  <h1>🎧 Práctica Prueba Oral</h1>
+  <p>Toca ▶ para escuchar cada frase en inglés</p>
+</header>
+
+<div class="tabs">
+  <button class="tab active" onclick="showSection('parte1', this)">Parte 1 · Conversación</button>
+  <button class="tab" onclick="showSection('parte2', this)">Parte 2 · Predicciones</button>
+  <button class="tab" onclick="showSection('parte3', this)">Parte 3 · Pasado/Perfecto</button>
+</div>
+
+<!-- PARTE 1 -->
+<div class="section active" id="parte1">
+  <div class="tip">
+    <strong>Cómo usarlo:</strong> Escucha la pregunta, pausa, responde en voz alta, luego escucha la respuesta modelo. Repite hasta memorizarlo. 🚗
+  </div>
+  <button class="play-all-btn" onclick="playAll('parte1')" id="playall-parte1">▶ Escuchar todo seguido</button>
+
+  <div class="section-title">Tus preguntas (Present Perfect)</div>
+
+  <div class="card" data-text="Have you ever sung something in public?">
+    <div class="label pregunta">Pregunta 1 — Present Perfect</div>
+    <div class="phrase-en">Have you ever sung something in public?</div>
+    <div class="phrase-pron">👄 Jav yu ever sang samzin in pablic?</div>
+    <button class="speak-btn" onclick="speak(this, 'Have you ever sung something in public?')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Have you ever won a trophy or medal?">
+    <div class="label pregunta">Pregunta 2 — Present Perfect</div>
+    <div class="phrase-en">Have you ever won a trophy or medal?</div>
+    <div class="phrase-pron">👄 Jav yu ever wan a trofi or medal?</div>
+    <button class="speak-btn" onclick="speak(this, 'Have you ever won a trophy or medal?')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Have you ever spoken to a famous person?">
+    <div class="label pregunta">Pregunta 3 — Present Perfect</div>
+    <div class="phrase-en">Have you ever spoken to a famous person?</div>
+    <div class="phrase-pron">👄 Jav yu ever spouken tu a feimas person?</div>
+    <button class="speak-btn" onclick="speak(this, 'Have you ever spoken to a famous person?')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Have you ever eaten something really strange?">
+    <div class="label pregunta">Pregunta 4 — Present Perfect</div>
+    <div class="phrase-en">Have you ever eaten something really strange?</div>
+    <div class="phrase-pron">👄 Jav yu ever iten samzin rili streinch?</div>
+    <button class="speak-btn" onclick="speak(this, 'Have you ever eaten something really strange?')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Have you ever traveled to another country?">
+    <div class="label pregunta">Pregunta 5 — Present Perfect</div>
+    <div class="phrase-en">Have you ever traveled to another country?</div>
+    <div class="phrase-pron">👄 Jav yu ever traveld tu anoder kantri?</div>
+    <button class="speak-btn" onclick="speak(this, 'Have you ever traveled to another country?')">▶ Escuchar</button>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Follow-up (Simple Past — si ella dice YES)</div>
+
+  <div class="card" data-text="What did you sing? How did you feel?">
+    <div class="label pregunta">Follow-up · cantar</div>
+    <div class="phrase-en">What did you sing? How did you feel?</div>
+    <div class="phrase-pron">👄 Wat did yu sing? Jau did yu fil?</div>
+    <button class="speak-btn" onclick="speak(this, 'What did you sing? How did you feel?')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="What did you win it for?">
+    <div class="label pregunta">Follow-up · trofeo</div>
+    <div class="phrase-en">What did you win it for?</div>
+    <div class="phrase-pron">👄 Wat did yu win it for?</div>
+    <button class="speak-btn" onclick="speak(this, 'What did you win it for?')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Who did you speak to? What did you say?">
+    <div class="label pregunta">Follow-up · persona famosa</div>
+    <div class="phrase-en">Who did you speak to? What did you say?</div>
+    <div class="phrase-pron">👄 Ju did yu spik tu? Wat did yu sei?</div>
+    <button class="speak-btn" onclick="speak(this, 'Who did you speak to? What did you say?')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="What did you eat? Where did you try it?">
+    <div class="label pregunta">Follow-up · comida extraña</div>
+    <div class="phrase-en">What did you eat? Where did you try it?</div>
+    <div class="phrase-pron">👄 Wat did yu it? Wer did yu trai it?</div>
+    <button class="speak-btn" onclick="speak(this, 'What did you eat? Where did you try it?')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Where did you go? What did you do there?">
+    <div class="label pregunta">Follow-up · viaje</div>
+    <div class="phrase-en">Where did you go? What did you do there?</div>
+    <div class="phrase-pron">👄 Wer did yu go? Wat did yu du der?</div>
+    <button class="speak-btn" onclick="speak(this, 'Where did you go? What did you do there?')">▶ Escuchar</button>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Tus respuestas (cuando ella te pregunta)</div>
+
+  <div class="card" data-text="Have you been to the movies recently?">
+    <div class="label pregunta">Ella pregunta</div>
+    <div class="phrase-en">Have you been to the movies recently?</div>
+    <div class="phrase-pron">👄 Jav yu bin tu da muvis risentli?</div>
+    <button class="speak-btn" onclick="speak(this, 'Have you been to the movies recently?')">▶ Escuchar</button>
+  </div>
+  <div class="card" data-text="Yes, I have. I went to see a movie last weekend. It was really good.">
+    <div class="label respuesta">Tu respuesta</div>
+    <div class="phrase-en">Yes, I have. I went to see a movie last weekend. It was really good.</div>
+    <div class="phrase-pron">👄 Yes ai jav. Ai went tu si a muvi last uikend. It was rili gud.</div>
+    <button class="speak-btn" onclick="speak(this, 'Yes, I have. I went to see a movie last weekend. It was really good.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Have you ever lost your phone?">
+    <div class="label pregunta">Ella pregunta</div>
+    <div class="phrase-en">Have you ever lost your phone?</div>
+    <div class="phrase-pron">👄 Jav yu ever lost yor fon?</div>
+    <button class="speak-btn" onclick="speak(this, 'Have you ever lost your phone?')">▶ Escuchar</button>
+  </div>
+  <div class="card" data-text="Yes, I have. I lost it at school last year. I found it the next day.">
+    <div class="label respuesta">Tu respuesta</div>
+    <div class="phrase-en">Yes, I have. I lost it at school last year. I found it the next day.</div>
+    <div class="phrase-pron">👄 Yes ai jav. Ai lost it at skul last yir. Ai faund it da nekst dei.</div>
+    <button class="speak-btn" onclick="speak(this, 'Yes, I have. I lost it at school last year. I found it the next day.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Have you ever spoken to a famous person?">
+    <div class="label pregunta">Ella pregunta</div>
+    <div class="phrase-en">Have you ever spoken to a famous person?</div>
+    <div class="phrase-pron">👄 Jav yu ever spouken tu a feimas person?</div>
+    <button class="speak-btn" onclick="speak(this, 'Have you ever spoken to a famous person?')">▶ Escuchar</button>
+  </div>
+  <div class="card" data-text="Yes, I have. I spoke to a singer at a concert. It was amazing.">
+    <div class="label respuesta">Tu respuesta</div>
+    <div class="phrase-en">Yes, I have. I spoke to a singer at a concert. It was amazing.</div>
+    <div class="phrase-pron">👄 Yes ai jav. Ai spok tu a singer at a concert. It was ameising.</div>
+    <button class="speak-btn" onclick="speak(this, 'Yes, I have. I spoke to a singer at a concert. It was amazing.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Have you ever gotten up really late recently?">
+    <div class="label pregunta">Ella pregunta</div>
+    <div class="phrase-en">Have you ever gotten up really late recently?</div>
+    <div class="phrase-pron">👄 Jav yu ever gueten ap rili leit risentli?</div>
+    <button class="speak-btn" onclick="speak(this, 'Have you ever gotten up really late recently?')">▶ Escuchar</button>
+  </div>
+  <div class="card" data-text="Yes, I have. I got up at noon last Sunday. I missed breakfast.">
+    <div class="label respuesta">Tu respuesta</div>
+    <div class="phrase-en">Yes, I have. I got up at noon last Sunday. I missed breakfast.</div>
+    <div class="phrase-pron">👄 Yes ai jav. Ai got ap at nun last Sandei. Ai misd brekfast.</div>
+    <button class="speak-btn" onclick="speak(this, 'Yes, I have. I got up at noon last Sunday. I missed breakfast.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Have you bought anything online recently?">
+    <div class="label pregunta">Ella pregunta</div>
+    <div class="phrase-en">Have you bought anything online recently?</div>
+    <div class="phrase-pron">👄 Jav yu bot enizing onlain risentli?</div>
+    <button class="speak-btn" onclick="speak(this, 'Have you bought anything online recently?')">▶ Escuchar</button>
+  </div>
+  <div class="card" data-text="Yes, I have. I bought some clothes last week. I bought them from a Chilean store.">
+    <div class="label respuesta">Tu respuesta</div>
+    <div class="phrase-en">Yes, I have. I bought some clothes last week. I bought them from a Chilean store.</div>
+    <div class="phrase-pron">👄 Yes ai jav. Ai bot sam kloudz last uik. Ai bot dem from a Chilean stor.</div>
+    <button class="speak-btn" onclick="speak(this, 'Yes, I have. I bought some clothes last week. I bought them from a Chilean store.')">▶ Escuchar</button>
+  </div>
+</div>
+
+<!-- PARTE 2 -->
+<div class="section" id="parte2">
+  <div class="tip">
+    <strong>Predicciones:</strong> Al ver una imagen debes decir qué va a pasar. Usa siempre <strong>"is going to"</strong> o <strong>"are going to"</strong>.
+  </div>
+  <button class="play-all-btn" onclick="playAll('parte2')" id="playall-parte2">▶ Escuchar todo seguido</button>
+
+  <div class="section-title">Del libro / clase</div>
+
+  <div class="card" data-text="It is going to rain.">
+    <div class="label prediccion">🌧 Nubes oscuras</div>
+    <div class="phrase-en">It is going to rain.</div>
+    <div class="phrase-pron">👄 It is going tu rein.</div>
+    <button class="speak-btn" onclick="speak(this, 'It is going to rain.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="They are going to get married.">
+    <div class="label prediccion">💍 Pareja</div>
+    <div class="phrase-en">They are going to get married.</div>
+    <div class="phrase-pron">👄 Dei ar going tu guet marid.</div>
+    <button class="speak-btn" onclick="speak(this, 'They are going to get married.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="He is going to do exercise.">
+    <div class="label prediccion">🏋️ Gimnasio</div>
+    <div class="phrase-en">He is going to do exercise.</div>
+    <div class="phrase-pron">👄 Ji is going tu du eksersais.</div>
+    <button class="speak-btn" onclick="speak(this, 'He is going to do exercise.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="He is going to graduate.">
+    <div class="label prediccion">🎓 Birrete</div>
+    <div class="phrase-en">He is going to graduate.</div>
+    <div class="phrase-pron">👄 Ji is going tu gradyueit.</div>
+    <button class="speak-btn" onclick="speak(this, 'He is going to graduate.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="The man is going to fall.">
+    <div class="label prediccion">🤸 Hombre cayendo</div>
+    <div class="phrase-en">The man is going to fall.</div>
+    <div class="phrase-pron">👄 Da man is going tu fol.</div>
+    <button class="speak-btn" onclick="speak(this, 'The man is going to fall.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="The baby is going to cry.">
+    <div class="label prediccion">👶 Bebé</div>
+    <div class="phrase-en">The baby is going to cry.</div>
+    <div class="phrase-pron">👄 Da beibi is going tu krai.</div>
+    <button class="speak-btn" onclick="speak(this, 'The baby is going to cry.')">▶ Escuchar</button>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Extras — imágenes random</div>
+
+  <div class="card" data-text="She is going to eat.">
+    <div class="label prediccion">🍽 Persona con comida</div>
+    <div class="phrase-en">She is going to eat.</div>
+    <div class="phrase-pron">👄 Shi is going tu it.</div>
+    <button class="speak-btn" onclick="speak(this, 'She is going to eat.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="He is going to sleep.">
+    <div class="label prediccion">😴 Persona cansada</div>
+    <div class="phrase-en">He is going to sleep.</div>
+    <div class="phrase-pron">👄 Ji is going tu slip.</div>
+    <button class="speak-btn" onclick="speak(this, 'He is going to sleep.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="They are going to play football.">
+    <div class="label prediccion">⚽ Jugadores</div>
+    <div class="phrase-en">They are going to play football.</div>
+    <div class="phrase-pron">👄 Dei ar going tu plei futbol.</div>
+    <button class="speak-btn" onclick="speak(this, 'They are going to play football.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="She is going to study.">
+    <div class="label prediccion">📚 Persona con libros</div>
+    <div class="phrase-en">She is going to study.</div>
+    <div class="phrase-pron">👄 Shi is going tu stadi.</div>
+    <button class="speak-btn" onclick="speak(this, 'She is going to study.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="He is going to cook dinner.">
+    <div class="label prediccion">👨‍🍳 Cocinando</div>
+    <div class="phrase-en">He is going to cook dinner.</div>
+    <div class="phrase-pron">👄 Ji is going tu kuk diner.</div>
+    <button class="speak-btn" onclick="speak(this, 'He is going to cook dinner.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="They are going to travel.">
+    <div class="label prediccion">✈️ Maletas / avión</div>
+    <div class="phrase-en">They are going to travel.</div>
+    <div class="phrase-pron">👄 Dei ar going tu travel.</div>
+    <button class="speak-btn" onclick="speak(this, 'They are going to travel.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="She is going to dance.">
+    <div class="label prediccion">💃 Bailando</div>
+    <div class="phrase-en">She is going to dance.</div>
+    <div class="phrase-pron">👄 Shi is going tu dans.</div>
+    <button class="speak-btn" onclick="speak(this, 'She is going to dance.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="It is going to snow.">
+    <div class="label prediccion">❄️ Nubes blancas / frío</div>
+    <div class="phrase-en">It is going to snow.</div>
+    <div class="phrase-pron">👄 It is going tu snou.</div>
+    <button class="speak-btn" onclick="speak(this, 'It is going to snow.')">▶ Escuchar</button>
+  </div>
+</div>
+
+<!-- PARTE 3 -->
+<div class="section" id="parte3">
+  <div class="tip">
+    <strong>Recuerda:</strong> Simple Past = acción terminada con fecha. Present Perfect = logro acumulado sin fecha específica.
+  </div>
+  <button class="play-all-btn" onclick="playAll('parte3')" id="playall-parte3">▶ Escuchar todo seguido</button>
+
+  <div class="section-title">Adele</div>
+  <div class="card" data-text="She released her first album in 2008.">
+    <div class="label pasado">Simple Past</div>
+    <div class="phrase-en">She released her first album in 2008.</div>
+    <div class="phrase-pron">👄 Shi rilisd jer ferst album in tu-zausand-eit.</div>
+    <button class="speak-btn" onclick="speak(this, 'She released her first album in 2008.')">▶ Escuchar</button>
+  </div>
+  <div class="card" data-text="She has won 16 Grammy Awards.">
+    <div class="label perfecto">Present Perfect</div>
+    <div class="phrase-en">She has won 16 Grammy Awards.</div>
+    <div class="phrase-pron">👄 Shi jas wan sikstin Grami Auords.</div>
+    <button class="speak-btn" onclick="speak(this, 'She has won 16 Grammy Awards.')">▶ Escuchar</button>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Atleta — medallas olímpicas</div>
+  <div class="card" data-text="She won her first Olympic gold medal in 2016.">
+    <div class="label pasado">Simple Past</div>
+    <div class="phrase-en">She won her first Olympic gold medal in 2016.</div>
+    <div class="phrase-pron">👄 Shi wan jer ferst olimpik gold medal in tu-zausand-sikstin.</div>
+    <button class="speak-btn" onclick="speak(this, 'She won her first Olympic gold medal in 2016.')">▶ Escuchar</button>
+  </div>
+  <div class="card" data-text="She has won 12 Olympic gold medals.">
+    <div class="label perfecto">Present Perfect</div>
+    <div class="phrase-en">She has won 12 Olympic gold medals.</div>
+    <div class="phrase-pron">👄 Shi jas wan twelv olimpik gold medals.</div>
+    <button class="speak-btn" onclick="speak(this, 'She has won 12 Olympic gold medals.')">▶ Escuchar</button>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Leonardo DiCaprio</div>
+  <div class="card" data-text="He acted in his first movie in 1991.">
+    <div class="label pasado">Simple Past</div>
+    <div class="phrase-en">He acted in his first movie in 1991.</div>
+    <div class="phrase-pron">👄 Ji akted in jis ferst muvi in nainti-naintiuan.</div>
+    <button class="speak-btn" onclick="speak(this, 'He acted in his first movie in 1991.')">▶ Escuchar</button>
+  </div>
+  <div class="card" data-text="He has won 1 Oscar.">
+    <div class="label perfecto">Present Perfect</div>
+    <div class="phrase-en">He has won 1 Oscar.</div>
+    <div class="phrase-pron">👄 Ji jas wan wan Oscar.</div>
+    <button class="speak-btn" onclick="speak(this, 'He has won 1 Oscar.')">▶ Escuchar</button>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Ed Sheeran</div>
+  <div class="card" data-text="He released his first album in 2011.">
+    <div class="label pasado">Simple Past</div>
+    <div class="phrase-en">He released his first album in 2011.</div>
+    <div class="phrase-pron">👄 Ji rilisd jis ferst album in tu-zausand-eleven.</div>
+    <button class="speak-btn" onclick="speak(this, 'He released his first album in 2011.')">▶ Escuchar</button>
+  </div>
+  <div class="card" data-text="He has won 4 Grammy Awards.">
+    <div class="label perfecto">Present Perfect</div>
+    <div class="phrase-en">He has won 4 Grammy Awards.</div>
+    <div class="phrase-pron">👄 Ji jas wan for Grami Auords.</div>
+    <button class="speak-btn" onclick="speak(this, 'He has won 4 Grammy Awards.')">▶ Escuchar</button>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Bruno Mars</div>
+  <div class="card" data-text="He released his first album in 2010.">
+    <div class="label pasado">Simple Past</div>
+    <div class="phrase-en">He released his first album in 2010.</div>
+    <div class="phrase-pron">👄 Ji rilisd jis ferst album in tu-zausand-ten.</div>
+    <button class="speak-btn" onclick="speak(this, 'He released his first album in 2010.')">▶ Escuchar</button>
+  </div>
+  <div class="card" data-text="He has won 16 Grammy Awards.">
+    <div class="label perfecto">Present Perfect</div>
+    <div class="phrase-en">He has won 16 Grammy Awards.</div>
+    <div class="phrase-pron">👄 Ji jas wan sikstin Grami Auords.</div>
+    <button class="speak-btn" onclick="speak(this, 'He has won 16 Grammy Awards.')">▶ Escuchar</button>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Lady Gaga</div>
+  <div class="card" data-text="She released her first album in 2009.">
+    <div class="label pasado">Simple Past</div>
+    <div class="phrase-en">She released her first album in 2009.</div>
+    <div class="phrase-pron">👄 Shi rilisd jer ferst album in tu-zausand-nain.</div>
+    <button class="speak-btn" onclick="speak(this, 'She released her first album in 2009.')">▶ Escuchar</button>
+  </div>
+  <div class="card" data-text="She has won 14 Grammy Awards.">
+    <div class="label perfecto">Present Perfect</div>
+    <div class="phrase-en">She has won 14 Grammy Awards.</div>
+    <div class="phrase-pron">👄 Shi jas wan fortin Grami Auords.</div>
+    <button class="speak-btn" onclick="speak(this, 'She has won 14 Grammy Awards.')">▶ Escuchar</button>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Dua Lipa</div>
+  <div class="card" data-text="She released her first album in 2017.">
+    <div class="label pasado">Simple Past</div>
+    <div class="phrase-en">She released her first album in 2017.</div>
+    <div class="phrase-pron">👄 Shi rilisd jer ferst album in tu-zausand-seventin.</div>
+    <button class="speak-btn" onclick="speak(this, 'She released her first album in 2017.')">▶ Escuchar</button>
+  </div>
+  <div class="card" data-text="She has performed 3 world tours.">
+    <div class="label perfecto">Present Perfect</div>
+    <div class="phrase-en">She has performed 3 world tours.</div>
+    <div class="phrase-pron">👄 Shi jas performd zri world turs.</div>
+    <button class="speak-btn" onclick="speak(this, 'She has performed 3 world tours.')">▶ Escuchar</button>
+  </div>
+</div>
+
+<script>
+  let currentBtn = null;
+
+  function speak(btn, text) {
+    window.speechSynthesis.cancel();
+    if (currentBtn) { currentBtn.classList.remove('playing'); currentBtn.textContent = '▶ Escuchar'; }
+    if (currentBtn === btn) { currentBtn = null; return; }
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'en-US'; utter.rate = 0.85; utter.pitch = 1;
+    currentBtn = btn;
+    btn.classList.add('playing'); btn.textContent = '⏹ Detener';
+    utter.onend = () => { btn.classList.remove('playing'); btn.textContent = '▶ Escuchar'; currentBtn = null; };
+    window.speechSynthesis.speak(utter);
+  }
+
+  function playAll(sectionId) {
+    const section = document.getElementById(sectionId);
+    const cards = section.querySelectorAll('.card[data-text]');
+    const btn = document.getElementById('playall-' + sectionId);
+    window.speechSynthesis.cancel();
+    if (btn.classList.contains('playing')) {
+      btn.classList.remove('playing'); btn.textContent = '▶ Escuchar todo seguido'; return;
+    }
+    btn.classList.add('playing'); btn.textContent = '⏹ Detener';
+    const texts = Array.from(cards).map(c => c.dataset.text);
+    let i = 0;
+    function next() {
+      if (i >= texts.length || !btn.classList.contains('playing')) {
+        btn.classList.remove('playing'); btn.textContent = '▶ Escuchar todo seguido'; return;
+      }
+      const u = new SpeechSynthesisUtterance(texts[i]);
+      u.lang = 'en-US'; u.rate = 0.85;
+      u.onend = () => { i++; setTimeout(next, 800); };
+      window.speechSynthesis.speak(u);
+    }
+    next();
+  }
+
+  function showSection(id, tabEl) {
+    window.speechSynthesis.cancel();
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    tabEl.classList.add('active');
+  }
+</script>
+</body>
+</html>
