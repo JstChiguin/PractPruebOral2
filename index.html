@@ -55,153 +55,194 @@
 </div>
 
 <!-- PARTE 1 -->
+<!-- PARTE 1 -->
 <div class="section active" id="parte1">
   <div class="tip">
-    <strong>Cómo usarlo:</strong> Escucha la pregunta, pausa, responde en voz alta, luego escucha la respuesta modelo. Repite hasta memorizarlo. 🚗
+    <strong>Conversación:</strong> Practica las preguntas y respuestas tal como saldrán en la prueba oral.
   </div>
+
   <button class="play-all-btn" onclick="playAll('parte1')" id="playall-parte1">▶ Escuchar todo seguido</button>
 
-  <div class="section-title">Tus preguntas (Present Perfect)</div>
+  <div class="section-title">🎾 2 ARRIBA - SPORTS</div>
 
-  <div class="card" data-text="Have you ever sung something in public?">
-    <div class="label pregunta">Pregunta 1 — Present Perfect</div>
-    <div class="phrase-en">Have you ever sung something in public?</div>
-    <div class="phrase-pron">👄 Jav yu ever sang samzin in pablic?</div>
-    <button class="speak-btn" onclick="speak(this, 'Have you ever sung something in public?')">▶ Escuchar</button>
+  <div class="card" data-text="Have you played any sports recently?">
+    <div class="label pregunta">Yo</div>
+    <div class="phrase-en">Have you played any sports recently?</div>
+    <div class="phrase-pron">🔊 Jav iu pleid eni sports rísentli?</div>
+    <button class="speak-btn" onclick="speak(this, 'Have you played any sports recently?')">▶ Escuchar</button>
   </div>
 
-  <div class="card" data-text="Have you ever won a trophy or medal?">
-    <div class="label pregunta">Pregunta 2 — Present Perfect</div>
-    <div class="phrase-en">Have you ever won a trophy or medal?</div>
-    <div class="phrase-pron">👄 Jav yu ever wan a trofi or medal?</div>
-    <button class="speak-btn" onclick="speak(this, 'Have you ever won a trophy or medal?')">▶ Escuchar</button>
+  <div class="card" data-text="Yes, I have.">
+    <div class="label respuesta">Vicky</div>
+    <div class="phrase-en">Yes, I have.</div>
+    <div class="phrase-pron">🔊 Ies, ai jav.</div>
+    <button class="speak-btn" onclick="speak(this, 'Yes, I have.')">▶ Escuchar</button>
   </div>
 
-  <div class="card" data-text="Have you ever spoken to a famous person?">
-    <div class="label pregunta">Pregunta 3 — Present Perfect</div>
-    <div class="phrase-en">Have you ever spoken to a famous person?</div>
-    <div class="phrase-pron">👄 Jav yu ever spouken tu a feimas person?</div>
-    <button class="speak-btn" onclick="speak(this, 'Have you ever spoken to a famous person?')">▶ Escuchar</button>
+  <div class="card" data-text="What did you play?">
+    <div class="label pregunta">Yo</div>
+    <div class="phrase-en">What did you play?</div>
+    <div class="phrase-pron">🔊 Uat did iu plei?</div>
+    <button class="speak-btn" onclick="speak(this, 'What did you play?')">▶ Escuchar</button>
   </div>
 
-  <div class="card" data-text="Have you ever eaten something really strange?">
-    <div class="label pregunta">Pregunta 4 — Present Perfect</div>
-    <div class="phrase-en">Have you ever eaten something really strange?</div>
-    <div class="phrase-pron">👄 Jav yu ever iten samzin rili streinch?</div>
-    <button class="speak-btn" onclick="speak(this, 'Have you ever eaten something really strange?')">▶ Escuchar</button>
+  <div class="card" data-text="I played soccer with my friends last weekend.">
+    <div class="label respuesta">Vicky</div>
+    <div class="phrase-en">I played soccer with my friends last weekend.</div>
+    <div class="phrase-pron">🔊 Ai pleid sóker uiz mai frends last uikénd.</div>
+    <button class="speak-btn" onclick="speak(this, 'I played soccer with my friends last weekend.')">▶ Escuchar</button>
   </div>
 
-  <div class="card" data-text="Have you ever traveled to another country?">
-    <div class="label pregunta">Pregunta 5 — Present Perfect</div>
-    <div class="phrase-en">Have you ever traveled to another country?</div>
-    <div class="phrase-pron">👄 Jav yu ever traveld tu anoder kantri?</div>
-    <button class="speak-btn" onclick="speak(this, 'Have you ever traveled to another country?')">▶ Escuchar</button>
+  <div class="card" data-text="Who did you play it with?">
+    <div class="label pregunta">Yo</div>
+    <div class="phrase-en">Who did you play it with?</div>
+    <div class="phrase-pron">🔊 Ju did iu plei it uiz?</div>
+    <button class="speak-btn" onclick="speak(this, 'Who did you play it with?')">▶ Escuchar</button>
   </div>
 
-  <div class="divider"></div>
-  <div class="section-title">Follow-up (Simple Past — si ella dice YES)</div>
-
-  <div class="card" data-text="What did you sing? How did you feel?">
-    <div class="label pregunta">Follow-up · cantar</div>
-    <div class="phrase-en">What did you sing? How did you feel?</div>
-    <div class="phrase-pron">👄 Wat did yu sing? Jau did yu fil?</div>
-    <button class="speak-btn" onclick="speak(this, 'What did you sing? How did you feel?')">▶ Escuchar</button>
-  </div>
-
-  <div class="card" data-text="What did you win it for?">
-    <div class="label pregunta">Follow-up · trofeo</div>
-    <div class="phrase-en">What did you win it for?</div>
-    <div class="phrase-pron">👄 Wat did yu win it for?</div>
-    <button class="speak-btn" onclick="speak(this, 'What did you win it for?')">▶ Escuchar</button>
-  </div>
-
-  <div class="card" data-text="Who did you speak to? What did you say?">
-    <div class="label pregunta">Follow-up · persona famosa</div>
-    <div class="phrase-en">Who did you speak to? What did you say?</div>
-    <div class="phrase-pron">👄 Ju did yu spik tu? Wat did yu sei?</div>
-    <button class="speak-btn" onclick="speak(this, 'Who did you speak to? What did you say?')">▶ Escuchar</button>
-  </div>
-
-  <div class="card" data-text="What did you eat? Where did you try it?">
-    <div class="label pregunta">Follow-up · comida extraña</div>
-    <div class="phrase-en">What did you eat? Where did you try it?</div>
-    <div class="phrase-pron">👄 Wat did yu it? Wer did yu trai it?</div>
-    <button class="speak-btn" onclick="speak(this, 'What did you eat? Where did you try it?')">▶ Escuchar</button>
-  </div>
-
-  <div class="card" data-text="Where did you go? What did you do there?">
-    <div class="label pregunta">Follow-up · viaje</div>
-    <div class="phrase-en">Where did you go? What did you do there?</div>
-    <div class="phrase-pron">👄 Wer did yu go? Wat did yu du der?</div>
-    <button class="speak-btn" onclick="speak(this, 'Where did you go? What did you do there?')">▶ Escuchar</button>
+  <div class="card" data-text="I played it with my friends.">
+    <div class="label respuesta">Vicky</div>
+    <div class="phrase-en">I played it with my friends.</div>
+    <div class="phrase-pron">🔊 Ai pleid it uiz mai frends.</div>
+    <button class="speak-btn" onclick="speak(this, 'I played it with my friends.')">▶ Escuchar</button>
   </div>
 
   <div class="divider"></div>
-  <div class="section-title">Tus respuestas (cuando ella te pregunta)</div>
 
-  <div class="card" data-text="Have you been to the movies recently?">
-    <div class="label pregunta">Ella pregunta</div>
-    <div class="phrase-en">Have you been to the movies recently?</div>
-    <div class="phrase-pron">👄 Jav yu bin tu da muvis risentli?</div>
-    <button class="speak-btn" onclick="speak(this, 'Have you been to the movies recently?')">▶ Escuchar</button>
-  </div>
-  <div class="card" data-text="Yes, I have. I went to see a movie last weekend. It was really good.">
-    <div class="label respuesta">Tu respuesta</div>
-    <div class="phrase-en">Yes, I have. I went to see a movie last weekend. It was really good.</div>
-    <div class="phrase-pron">👄 Yes ai jav. Ai went tu si a muvi last uikend. It was rili gud.</div>
-    <button class="speak-btn" onclick="speak(this, 'Yes, I have. I went to see a movie last weekend. It was really good.')">▶ Escuchar</button>
-  </div>
+  <div class="section-title">📱 2 ABAJO - LOSE YOUR PHONE</div>
 
   <div class="card" data-text="Have you ever lost your phone?">
-    <div class="label pregunta">Ella pregunta</div>
+    <div class="label pregunta">Yo</div>
     <div class="phrase-en">Have you ever lost your phone?</div>
-    <div class="phrase-pron">👄 Jav yu ever lost yor fon?</div>
+    <div class="phrase-pron">🔊 Jav iu éver lost ior foun?</div>
     <button class="speak-btn" onclick="speak(this, 'Have you ever lost your phone?')">▶ Escuchar</button>
   </div>
-  <div class="card" data-text="Yes, I have. I lost it at school last year. I found it the next day.">
-    <div class="label respuesta">Tu respuesta</div>
-    <div class="phrase-en">Yes, I have. I lost it at school last year. I found it the next day.</div>
-    <div class="phrase-pron">👄 Yes ai jav. Ai lost it at skul last yir. Ai faund it da nekst dei.</div>
-    <button class="speak-btn" onclick="speak(this, 'Yes, I have. I lost it at school last year. I found it the next day.')">▶ Escuchar</button>
+
+  <div class="card" data-text="Yes, I have.">
+    <div class="label respuesta">Vicky</div>
+    <div class="phrase-en">Yes, I have.</div>
+    <div class="phrase-pron">🔊 Ies, ai jav.</div>
+    <button class="speak-btn" onclick="speak(this, 'Yes, I have.')">▶ Escuchar</button>
   </div>
 
-  <div class="card" data-text="Have you ever spoken to a famous person?">
-    <div class="label pregunta">Ella pregunta</div>
-    <div class="phrase-en">Have you ever spoken to a famous person?</div>
-    <div class="phrase-pron">👄 Jav yu ever spouken tu a feimas person?</div>
-    <button class="speak-btn" onclick="speak(this, 'Have you ever spoken to a famous person?')">▶ Escuchar</button>
-  </div>
-  <div class="card" data-text="Yes, I have. I spoke to a singer at a concert. It was amazing.">
-    <div class="label respuesta">Tu respuesta</div>
-    <div class="phrase-en">Yes, I have. I spoke to a singer at a concert. It was amazing.</div>
-    <div class="phrase-pron">👄 Yes ai jav. Ai spok tu a singer at a concert. It was ameising.</div>
-    <button class="speak-btn" onclick="speak(this, 'Yes, I have. I spoke to a singer at a concert. It was amazing.')">▶ Escuchar</button>
+  <div class="card" data-text="Where did you lose it?">
+    <div class="label pregunta">Yo</div>
+    <div class="phrase-en">Where did you lose it?</div>
+    <div class="phrase-pron">🔊 Uer did iu luz it?</div>
+    <button class="speak-btn" onclick="speak(this, 'Where did you lose it?')">▶ Escuchar</button>
   </div>
 
-  <div class="card" data-text="Have you ever gotten up really late recently?">
-    <div class="label pregunta">Ella pregunta</div>
-    <div class="phrase-en">Have you ever gotten up really late recently?</div>
-    <div class="phrase-pron">👄 Jav yu ever gueten ap rili leit risentli?</div>
-    <button class="speak-btn" onclick="speak(this, 'Have you ever gotten up really late recently?')">▶ Escuchar</button>
+  <div class="card" data-text="I lost my phone at work a few years ago.">
+    <div class="label respuesta">Vicky</div>
+    <div class="phrase-en">I lost my phone at work a few years ago.</div>
+    <div class="phrase-pron">🔊 Ai lost mai foun at uork a fiú yirs agóu.</div>
+    <button class="speak-btn" onclick="speak(this, 'I lost my phone at work a few years ago.')">▶ Escuchar</button>
   </div>
-  <div class="card" data-text="Yes, I have. I got up at noon last Sunday. I missed breakfast.">
-    <div class="label respuesta">Tu respuesta</div>
-    <div class="phrase-en">Yes, I have. I got up at noon last Sunday. I missed breakfast.</div>
-    <div class="phrase-pron">👄 Yes ai jav. Ai got ap at nun last Sandei. Ai misd brekfast.</div>
-    <button class="speak-btn" onclick="speak(this, 'Yes, I have. I got up at noon last Sunday. I missed breakfast.')">▶ Escuchar</button>
+
+  <div class="card" data-text="When did you find it?">
+    <div class="label pregunta">Yo</div>
+    <div class="phrase-en">When did you find it?</div>
+    <div class="phrase-pron">🔊 Uen did iu fáind it?</div>
+    <button class="speak-btn" onclick="speak(this, 'When did you find it?')">▶ Escuchar</button>
   </div>
+
+  <div class="card" data-text="I found it the same day.">
+    <div class="label respuesta">Vicky</div>
+    <div class="phrase-en">I found it the same day.</div>
+    <div class="phrase-pron">🔊 Ai fáund it de séim dei.</div>
+    <button class="speak-btn" onclick="speak(this, 'I found it the same day.')">▶ Escuchar</button>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-title">🛒 5 ARRIBA - BUY ANYTHING ONLINE</div>
 
   <div class="card" data-text="Have you bought anything online recently?">
-    <div class="label pregunta">Ella pregunta</div>
+    <div class="label pregunta">Vicky</div>
     <div class="phrase-en">Have you bought anything online recently?</div>
-    <div class="phrase-pron">👄 Jav yu bot enizing onlain risentli?</div>
+    <div class="phrase-pron">🔊 Jav iu bot énizing ónlain rísentli?</div>
     <button class="speak-btn" onclick="speak(this, 'Have you bought anything online recently?')">▶ Escuchar</button>
   </div>
-  <div class="card" data-text="Yes, I have. I bought some clothes last week. I bought them from a Chilean store.">
-    <div class="label respuesta">Tu respuesta</div>
-    <div class="phrase-en">Yes, I have. I bought some clothes last week. I bought them from a Chilean store.</div>
-    <div class="phrase-pron">👄 Yes ai jav. Ai bot sam kloudz last uik. Ai bot dem from a Chilean stor.</div>
-    <button class="speak-btn" onclick="speak(this, 'Yes, I have. I bought some clothes last week. I bought them from a Chilean store.')">▶ Escuchar</button>
+
+  <div class="card" data-text="Yes, I have.">
+    <div class="label respuesta">Tú</div>
+    <div class="phrase-en">Yes, I have.</div>
+    <div class="phrase-pron">🔊 Ies, ai jav.</div>
+    <button class="speak-btn" onclick="speak(this, 'Yes, I have.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="What did you buy?">
+    <div class="label pregunta">Vicky</div>
+    <div class="phrase-en">What did you buy?</div>
+    <div class="phrase-pron">🔊 Uat did iu bai?</div>
+    <button class="speak-btn" onclick="speak(this, 'What did you buy?')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="I bought some clothes online last month.">
+    <div class="label respuesta">Tú</div>
+    <div class="phrase-en">I bought some clothes online last month.</div>
+    <div class="phrase-pron">🔊 Ai bot sam clóuz ónlain last manz.</div>
+    <button class="speak-btn" onclick="speak(this, 'I bought some clothes online last month.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Where did you buy it from?">
+    <div class="label pregunta">Vicky</div>
+    <div class="phrase-en">Where did you buy it from?</div>
+    <div class="phrase-pron">🔊 Uer did iu bai it from?</div>
+    <button class="speak-btn" onclick="speak(this, 'Where did you buy it from?')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="I bought it from Mercado Libre.">
+    <div class="label respuesta">Tú</div>
+    <div class="phrase-en">I bought it from Mercado Libre.</div>
+    <div class="phrase-pron">🔊 Ai bot it from Mercádo Líbre.</div>
+    <button class="speak-btn" onclick="speak(this, 'I bought it from Mercado Libre.')">▶ Escuchar</button>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-title">💇 5 ABAJO - LONG HAIR</div>
+
+  <div class="card" data-text="Have you ever had very long hair?">
+    <div class="label pregunta">Vicky</div>
+    <div class="phrase-en">Have you ever had very long hair?</div>
+    <div class="phrase-pron">🔊 Jav iu éver jad véri long jer?</div>
+    <button class="speak-btn" onclick="speak(this, 'Have you ever had very long hair?')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Yes, I have.">
+    <div class="label respuesta">Tú</div>
+    <div class="phrase-en">Yes, I have.</div>
+    <div class="phrase-pron">🔊 Ies, ai jav.</div>
+    <button class="speak-btn" onclick="speak(this, 'Yes, I have.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="When did you have it?">
+    <div class="label pregunta">Vicky</div>
+    <div class="phrase-en">When did you have it?</div>
+    <div class="phrase-pron">🔊 Uen did iu jav it?</div>
+    <button class="speak-btn" onclick="speak(this, 'When did you have it?')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="I had it when I was in high school.">
+    <div class="label respuesta">Tú</div>
+    <div class="phrase-en">I had it when I was in high school.</div>
+    <div class="phrase-pron">🔊 Ai jad it uen ai uos in jai skúl.</div>
+    <button class="speak-btn" onclick="speak(this, 'I had it when I was in high school.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Did you like it?">
+    <div class="label pregunta">Vicky</div>
+    <div class="phrase-en">Did you like it?</div>
+    <div class="phrase-pron">🔊 Did iu láik it?</div>
+    <button class="speak-btn" onclick="speak(this, 'Did you like it?')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="Yes, I did. It looked very nice.">
+    <div class="label respuesta">Tú</div>
+    <div class="phrase-en">Yes, I did. It looked very nice.</div>
+    <div class="phrase-pron">🔊 Ies, ai did. It lukt véri nais.</div>
+    <button class="speak-btn" onclick="speak(this, 'Yes, I did. It looked very nice.')">▶ Escuchar</button>
   </div>
 </div>
 
@@ -425,6 +466,40 @@
     <div class="phrase-en">She has performed 3 world tours.</div>
     <div class="phrase-pron">👄 Shi jas performd zri world turs.</div>
     <button class="speak-btn" onclick="speak(this, 'She has performed 3 world tours.')">▶ Escuchar</button>
+  </div>
+
+    <div class="divider"></div>
+  <div class="section-title">⚽ Lionel Messi</div>
+
+  <div class="card" data-text="He made his debut for Barcelona in 2004.">
+    <div class="label pasado">Simple Past</div>
+    <div class="phrase-en">He made his debut for Barcelona in 2004.</div>
+    <div class="phrase-pron">👄 Ji meid jis déibiut for Barselóna in tu-zausand-for.</div>
+    <button class="speak-btn" onclick="speak(this, 'He made his debut for Barcelona in 2004.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="He has won eight Ballon d'Or awards.">
+    <div class="label perfecto">Present Perfect</div>
+    <div class="phrase-en">He has won eight Ballon d'Or awards.</div>
+    <div class="phrase-pron">👄 Ji jas won eit Balón Dor auords.</div>
+    <button class="speak-btn" onclick="speak(this, 'He has won eight Ballon d\\'Or awards.')">▶ Escuchar</button>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">⚽ Cristiano Ronaldo</div>
+
+  <div class="card" data-text="He played his first professional match in 2002.">
+    <div class="label pasado">Simple Past</div>
+    <div class="phrase-en">He played his first professional match in 2002.</div>
+    <div class="phrase-pron">👄 Ji pleid jis ferst proféshonal mach in tu-zausand-tu.</div>
+    <button class="speak-btn" onclick="speak(this, 'He played his first professional match in 2002.')">▶ Escuchar</button>
+  </div>
+
+  <div class="card" data-text="He has scored more than 900 goals.">
+    <div class="label perfecto">Present Perfect</div>
+    <div class="phrase-en">He has scored more than 900 goals.</div>
+    <div class="phrase-pron">👄 Ji jas skord mor dan nain jandred gouls.</div>
+    <button class="speak-btn" onclick="speak(this, 'He has scored more than 900 goals.')">▶ Escuchar</button>
   </div>
 </div>
 
